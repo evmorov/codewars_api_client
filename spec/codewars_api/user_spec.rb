@@ -90,4 +90,10 @@ describe CodewarsApi::User do
       expect(user.katas_completed).to eq(230)
     end
   end
+
+  describe '#to_h' do
+    it 'returns hash data' do
+      expect(user.to_h).to be_a(Hash)
+    end
+  end
 end

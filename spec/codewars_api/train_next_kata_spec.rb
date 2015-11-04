@@ -100,4 +100,10 @@ describe CodewarsApi::TrainNextKata do
       expect(train_next_kata.code).to be_nil
     end
   end
+
+  describe '#to_h' do
+    it 'returns hash data' do
+      expect(train_next_kata.to_h).to be_a(Hash)
+    end
+  end
 end

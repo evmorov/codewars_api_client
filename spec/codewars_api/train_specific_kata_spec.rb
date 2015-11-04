@@ -102,4 +102,10 @@ describe CodewarsApi::TrainSpecificKata do
       expect(train_specific_kata.recently_attempted).to be_nil
     end
   end
+
+  describe '#to_h' do
+    it 'returns hash data' do
+      expect(train_specific_kata.to_h).to be_a(Hash)
+    end
+  end
 end

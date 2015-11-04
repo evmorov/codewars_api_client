@@ -110,4 +110,10 @@ describe CodewarsApi::DeferredResponse do
       expect(deferred_response.status_code).to eq(200)
     end
   end
+
+  describe '#to_h' do
+    it 'returns hash data' do
+      expect(deferred_response.to_h).to be_a(Hash)
+    end
+  end
 end

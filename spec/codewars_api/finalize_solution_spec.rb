@@ -23,4 +23,10 @@ describe CodewarsApi::FinalizeSolution do
       expect(finalize_solution.success).to be(true)
     end
   end
+
+  describe '#to_h' do
+    it 'returns hash data' do
+      expect(finalize_solution.to_h).to be_a(Hash)
+    end
+  end
 end

@@ -157,4 +157,10 @@ describe CodewarsApi::KataInfo do
       expect(kata.unresolved_suggestions).to eq(0)
     end
   end
+
+  describe '#to_h' do
+    it 'returns hash data' do
+      expect(kata.to_h).to be_a(Hash)
+    end
+  end
 end
