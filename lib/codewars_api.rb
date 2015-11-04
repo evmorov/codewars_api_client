@@ -1,6 +1,7 @@
 CodewarsApi::BASE_URL = 'https://www.codewars.com'
 CodewarsApi::API_URL = '/api/v1'
 
+require 'codewars_api/request_helper'
 require 'codewars_api/version'
 require 'codewars_api/client'
 require 'codewars_api/user'
