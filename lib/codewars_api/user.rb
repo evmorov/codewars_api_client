@@ -35,19 +35,19 @@ module CodewarsApi
     end
 
     def rank_overall
-      @response.to_h['ranks']['overall']
+      @response.to_h['ranks'].andand['overall']
     end
 
     def rank_languages
-      @response.to_h['ranks']['languages']
+      @response.to_h['ranks'].andand['languages']
     end
 
     def katas_authored
-      @response.to_h['codeChallenges']['totalAuthored']
+      @response.to_h['codeChallenges'].andand['totalAuthored']
     end
 
     def katas_completed
-      @response.to_h['codeChallenges']['totalCompleted']
+      @response.to_h['codeChallenges'].andand['totalCompleted']
     end
 
     def to_h

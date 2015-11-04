@@ -53,27 +53,27 @@ module CodewarsApi
     end
 
     def project_id
-      @response.to_h['session']['projectId']
+      @response.to_h['session'].andand['projectId']
     end
 
     def solution_id
-      @response.to_h['session']['solutionId']
+      @response.to_h['session'].andand['solutionId']
     end
 
     def code_setup
-      @response.to_h['session']['setup']
+      @response.to_h['session'].andand['setup']
     end
 
     def tests_setup
-      @response.to_h['session']['exampleFixture']
+      @response.to_h['session'].andand['exampleFixture']
     end
 
     def code
-      @response.to_h['session']['code']
+      @response.to_h['session'].andand['code']
     end
 
     def recently_attempted
-      @response.to_h['session']['recentlyAttempted']
+      @response.to_h['session'].andand['recentlyAttempted']
     end
 
     def to_h

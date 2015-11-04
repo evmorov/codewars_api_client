@@ -50,19 +50,19 @@ module CodewarsApi
     end
 
     def creater_username
-      @response.to_h['createdBy']['username']
+      @response.to_h['createdBy'].andand['username']
     end
 
     def creater_url
-      @response.to_h['createdBy']['url']
+      @response.to_h['createdBy'].andand['url']
     end
 
     def approver_username
-      @response.to_h['approvedBy']['username']
+      @response.to_h['approvedBy'].andand['username']
     end
 
     def approver_url
-      @response.to_h['approvedBy']['url']
+      @response.to_h['approvedBy'].andand['url']
     end
 
     def description
@@ -94,11 +94,11 @@ module CodewarsApi
     end
 
     def unresolved_issues
-      @response.to_h['unresolved']['issues']
+      @response.to_h['unresolved'].andand['issues']
     end
 
     def unresolved_suggestions
-      @response.to_h['unresolved']['suggestions']
+      @response.to_h['unresolved'].andand['suggestions']
     end
 
     def to_h

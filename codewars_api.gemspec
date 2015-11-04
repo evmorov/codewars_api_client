@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
 
   spec.add_dependency 'httparty', '~> 0.13.7'
+  spec.add_dependency 'andand', '~> 1.3.3'
 end

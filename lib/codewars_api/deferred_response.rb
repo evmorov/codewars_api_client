@@ -53,15 +53,15 @@ module CodewarsApi
     end
 
     def summary_passed
-      @response.to_h['summary']['passed']
+      @response.to_h['summary'].andand['passed']
     end
 
     def summary_failed
-      @response.to_h['summary']['failed']
+      @response.to_h['summary'].andand['failed']
     end
 
     def summary_errors
-      @response.to_h['summary']['errors']
+      @response.to_h['summary'].andand['errors']
     end
 
     def reason

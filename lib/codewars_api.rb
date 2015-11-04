@@ -7,6 +7,7 @@ require 'codewars_api/train_specific_kata'
 require 'codewars_api/attempt_solution'
 require 'codewars_api/finalize_solution'
 require 'codewars_api/deferred_response'
+require 'andand'
 
 begin
   require 'pry'
