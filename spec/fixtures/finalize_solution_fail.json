@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "message": "Finalized Finalized cannot be true unless completed_at is set, Finalized Finalized cannot be true unless code is set",
+  "errors": [{
+    "reason": "Finalized Finalized cannot be true unless completed_at is set, Finalized Finalized cannot be true unless code is set",
+    "fields": ["finalized"]
+  }, {
+    "reason": "Finalized Finalized cannot be true unless code is set",
+    "fields": ["finalized"]
+  }],
+  "error": 422
+}
