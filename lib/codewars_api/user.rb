@@ -7,7 +7,7 @@ module CodewarsApi
 
     def initialize(username)
       fail 'Usernam is not set' unless username
-      @response = self.class.get("/api/v1/users/#{username}")
+      @response = self.class.get("#{CodewarsApi::API_URL}/users/#{username}")
     end
 
     def username

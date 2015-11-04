@@ -14,7 +14,8 @@ module CodewarsApi
       post_options = post_options(options[:api_key])
       post_options[:body] = { 'code' => code }
       @response = post_request(
-        "/api/v1/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt",
+        "#{CodewarsApi::API_URL}"\
+        "/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt",
         post_options
       )
     end

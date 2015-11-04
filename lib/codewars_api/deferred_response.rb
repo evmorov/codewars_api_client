@@ -10,10 +10,7 @@ module CodewarsApi
       dmid = options.fetch(:dmid)
 
       post_options = post_options(options[:api_key])
-      @response = get_request(
-        "/api/v1/deferred/#{dmid}",
-        post_options
-      )
+      @response = get_request("#{CodewarsApi::API_URL}/deferred/#{dmid}", post_options)
     end
 
     def success

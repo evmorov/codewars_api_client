@@ -15,7 +15,7 @@ module CodewarsApi
       post_options[:headers] = { 'Authorization' => options[:api_key] }
 
       @response = self.class.post(
-        "/api/v1/code-challenges/#{id_or_slug}/#{language}/train",
+        "#{CodewarsApi::API_URL}/code-challenges/#{id_or_slug}/#{language}/train",
         post_options
       )
     end

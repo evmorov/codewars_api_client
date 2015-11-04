@@ -6,7 +6,7 @@ module CodewarsApi
     base_uri CodewarsApi::BASE_URL
 
     def initialize(id)
-      @response = self.class.get("/api/v1/code-challenges/#{id}")
+      @response = self.class.get("#{CodewarsApi::API_URL}/code-challenges/#{id}")
     end
 
     def id

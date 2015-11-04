@@ -4,7 +4,7 @@ module CodewarsApi
   class TrainNextKata
     include HTTParty
     base_uri CodewarsApi::BASE_URL
-    
+
     def initialize(options)
       fail 'API key is not set' unless options[:api_key]
 
@@ -15,7 +15,7 @@ module CodewarsApi
       post_options[:body] = { 'peek' => options[:peek] } if options[:peek] # TODO: Refactor
 
       @response = self.class.post(
-        "/api/v1/code-challenges/#{language}/train",
+        "#{CodewarsApi::API_URL}/code-challenges/#{language}/train",
         post_options
       )
     end
