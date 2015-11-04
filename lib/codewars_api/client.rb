@@ -17,28 +17,34 @@ module CodewarsApi
     end
 
     def train_next_kata(options)
-      options[:api_key] = @api_key
+      add_api_key(options)
       TrainNextKata.new(options)
     end
 
     def train_specific_kata(options)
-      options[:api_key] = @api_key
+      add_api_key(options)
       TrainSpecificKata.new(options)
     end
 
     def attempt_solution(options)
-      options[:api_key] = @api_key
+      add_api_key(options)
       AttemptSolution.new(options)
     end
 
     def finalize_solution(options)
-      options[:api_key] = @api_key
+      add_api_key(options)
       FinalizeSolution.new(options)
     end
 
     def deferred_response(options)
-      options[:api_key] = @api_key
+      add_api_key(options)
       DeferredResponse.new(options)
+    end
+
+    private
+
+    def add_api_key(options)
+      options[:api_key] = @api_key
     end
   end
 end
