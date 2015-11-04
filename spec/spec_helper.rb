@@ -31,11 +31,11 @@ to equal
 end
 
 def stub_get(url)
-  stub_request(:get, "#{CodewarsApi::BASE_URL}/api/v1#{url}")
+  stub_request(:get, "#{CodewarsApi::BASE_URL}#{CodewarsApi::API_URL}#{url}")
 end
 
 def stub_post(url)
-  stub_request(:post, "#{CodewarsApi::BASE_URL}/api/v1#{url}")
+  stub_request(:post, "#{CodewarsApi::BASE_URL}#{CodewarsApi::API_URL}#{url}")
 end
 
 def json_response(file)
