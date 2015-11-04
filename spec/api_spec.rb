@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'API responses have expected keys', check_api: false do
   include HTTParty
-  base_uri 'https://www.codewars.com'
+  base_uri CodewarsApi::BASE_URL
 
   before(:all) do
     WebMock.allow_net_connect!
