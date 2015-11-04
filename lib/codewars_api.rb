@@ -1,3 +1,5 @@
+CodewarsApi::BASE_URL = 'https://www.codewars.com'
+
 require 'codewars_api/version'
 require 'codewars_api/client'
 require 'codewars_api/user'

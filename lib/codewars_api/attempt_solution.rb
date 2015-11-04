@@ -3,7 +3,7 @@ require 'httparty'
 module CodewarsApi
   class AttemptSolution
     include HTTParty
-    base_uri 'https://www.codewars.com'
+    base_uri CodewarsApi::BASE_URL
 
     def initialize(options)
       fail 'API key is not set' unless options[:api_key]
