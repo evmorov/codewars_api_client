@@ -99,7 +99,7 @@ describe CodewarsApi::TrainSpecificKata do
 
   describe '#recently_attempted' do
     it 'returns recently attempted' do
-      expect(train_specific_kata.recerntly_attempted).to be_nil
+      expect(train_specific_kata.recently_attempted).to be_nil
     end
   end
 end

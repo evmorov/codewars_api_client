@@ -7,7 +7,6 @@ module CodewarsApi
 
     def initialize(options)
       fail 'API key is not set' unless options[:api_key]
-      @options = options
 
       language = options.fetch(:language)
 
