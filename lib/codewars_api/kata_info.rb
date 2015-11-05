@@ -1,12 +1,7 @@
-require 'httparty'
-
 module CodewarsApi
   class KataInfo
-    include HTTParty
-    base_uri CodewarsApi::BASE_URL
-
     def initialize(id)
-      @response = self.class.get("#{CodewarsApi::API_URL}/code-challenges/#{id}")
+      @response = RequestHelper.get("#{CodewarsApi::API_URL}/code-challenges/#{id}")
     end
 
     def id

@@ -1,5 +1,3 @@
-require 'httparty'
-
 module CodewarsApi
   class Client
     attr_reader :api_key

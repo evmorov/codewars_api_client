@@ -1,15 +1,28 @@
+require 'httparty'
+
 module CodewarsApi
   module RequestHelper
-    def post_request(endpoint, post_options)
-      self.class.post(endpoint, post_options)
+    include HTTParty
+    base_uri CodewarsApi::BASE_URL
+
+    def self.post_request(endpoint, request_options)
+      post(endpoint, request_options)
     end
 
-    def add_api_key(post_options, api_key)
-      post_options[:headers] = { 'Authorization' => api_key }
+    def self.get_request(endpoint, request_options = {})
+      get(endpoint, request_options)
     end
 
-    def add_body_option(post_options, body_option)
-      post_options[:body] = body_option
+    def self.add_api_key(request_options, api_key)
+      request_options = request_options.dup
+      request_options[:headers] = { 'Authorization' => api_key }
+      request_options
+    end
+
+    def self.add_body_option(request_options, body_option)
+      request_options = request_options.dup
+      request_options[:body] = body_option
+      request_options
     end
   end
 end

@@ -1,13 +1,8 @@
-require 'httparty'
-
 module CodewarsApi
   class User
-    include HTTParty
-    base_uri CodewarsApi::BASE_URL
-
     def initialize(username)
       fail 'Usernam is not set' unless username
-      @response = self.class.get("#{CodewarsApi::API_URL}/users/#{username}")
+      @response = RequestHelper.get("#{CodewarsApi::API_URL}/users/#{username}")
     end
 
     def username

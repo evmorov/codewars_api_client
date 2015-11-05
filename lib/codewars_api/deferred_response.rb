@@ -1,16 +1,13 @@
-require 'httparty'
-
 module CodewarsApi
   class DeferredResponse
-    include HTTParty
-    base_uri CodewarsApi::BASE_URL
-
     def initialize(options)
       fail 'API key is not set' unless options[:api_key]
       dmid = options.fetch(:dmid)
 
-      post_options = post_options(options[:api_key])
-      @response = get_request("#{CodewarsApi::API_URL}/deferred/#{dmid}", post_options)
+      request_options = {}
+      request_options = RequestHelper.add_api_key(request_options, options[:api_key])
+
+      @response = RequestHelper.get("#{CodewarsApi::API_URL}/deferred/#{dmid}", request_options)
     end
 
     def success
@@ -79,18 +76,6 @@ module CodewarsApi
 
     def to_h
       @response.to_h
-    end
-
-    private
-
-    def post_options(api_key)
-      post_options = {}
-      post_options[:headers] = { 'Authorization' => api_key }
-      post_options
-    end
-
-    def get_request(endpoint, post_options)
-      self.class.get(endpoint, post_options)
     end
   end
 end

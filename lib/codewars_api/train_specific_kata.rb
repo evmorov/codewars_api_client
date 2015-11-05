@@ -1,22 +1,16 @@
-require 'httparty'
-
 module CodewarsApi
   class TrainSpecificKata
-    include HTTParty
-    base_uri CodewarsApi::BASE_URL
-
     def initialize(options)
       fail 'API key is not set' unless options[:api_key]
-
       language = options.fetch(:language)
       id_or_slug = options.fetch(:id_or_slug)
 
-      post_options = {}
-      post_options[:headers] = { 'Authorization' => options[:api_key] }
+      request_options = {}
+      request_options = RequestHelper.add_api_key(request_options, options[:api_key])
 
-      @response = self.class.post(
+      @response = RequestHelper.post(
         "#{CodewarsApi::API_URL}/code-challenges/#{id_or_slug}/#{language}/train",
-        post_options
+        request_options
       )
     end
 
