@@ -1,11 +1,11 @@
 module CodewarsApi
   class DeferredResponse
     def initialize(options)
-      fail 'API key is not set' unless options[:api_key]
-      dmid = options.fetch(:dmid)
+      api_key = options.delete!(:api_key)
+      dmid = options.delete!(:dmid)
 
       request_options = {}
-      request_options = RequestHelper.add_api_key(request_options, options[:api_key])
+      request_options = RequestHelper.add_api_key(request_options, api_key)
 
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/deferred/#{dmid}", request_options)
     end

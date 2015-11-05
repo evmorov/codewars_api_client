@@ -1,14 +1,14 @@
 module CodewarsApi
   class AttemptSolution
     def initialize(options)
-      fail 'API key is not set' unless options[:api_key]
-      project_id = options.fetch(:project_id)
-      solution_id = options.fetch(:solution_id)
-      code = options.fetch(:code)
+      api_key = options.delete!(:api_key)
+      project_id = options.delete!(:project_id)
+      solution_id = options.delete!(:solution_id)
 
       request_options = {}
-      request_options = RequestHelper.add_api_key(request_options, options[:api_key])
-      request_options = RequestHelper.add_body_option(request_options, code: code)
+      request_options = RequestHelper.add_api_key(request_options, api_key)
+      request_options = RequestHelper.add_body_options(request_options, options)
+
       @response = RequestHelper.post(
         "#{CodewarsApi::API_URL}"\
         "/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt",

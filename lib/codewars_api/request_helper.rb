@@ -19,9 +19,9 @@ module CodewarsApi
       request_options
     end
 
-    def self.add_body_option(request_options, body_option)
+    def self.add_body_options(request_options, body_options)
       request_options = request_options.dup
-      request_options[:body] = body_option
+      request_options[:body] = body_options
       request_options
     end
   end

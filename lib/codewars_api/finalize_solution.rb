@@ -1,12 +1,12 @@
 module CodewarsApi
   class FinalizeSolution
     def initialize(options)
-      fail 'API key is not set' unless options[:api_key]
-      project_id = options.fetch(:project_id)
-      solution_id = options.fetch(:solution_id)
+      api_key = options.delete!(:api_key)
+      project_id = options.delete!(:project_id)
+      solution_id = options.delete!(:solution_id)
 
       request_options = {}
-      request_options = RequestHelper.add_api_key(request_options, options[:api_key])
+      request_options = RequestHelper.add_api_key(request_options, api_key)
 
       @response = RequestHelper.post(
         "#{CodewarsApi::API_URL}"\

@@ -1,14 +1,12 @@
 module CodewarsApi
   class TrainNextKata
     def initialize(options)
-      fail 'API key is not set' unless options[:api_key]
-      language = options.fetch(:language)
+      api_key = options.delete!(:api_key)
+      language = options.delete!(:language)
 
       request_options = {}
-      request_options = RequestHelper.add_api_key(request_options, options[:api_key])
-      if options[:peek]
-        request_options = RequestHelper.add_body_option(request_options, peek: options[:peek])
-      end
+      request_options = RequestHelper.add_api_key(request_options, api_key)
+      request_options = RequestHelper.add_body_options(request_options, options)
 
       @response = RequestHelper.post(
         "#{CodewarsApi::API_URL}/code-challenges/#{language}/train",

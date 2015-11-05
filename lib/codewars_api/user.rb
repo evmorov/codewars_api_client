@@ -1,7 +1,7 @@
 module CodewarsApi
   class User
     def initialize(username)
-      fail 'Usernam is not set' unless username
+      fail 'Username is not set' unless username
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/users/#{username}")
     end
 
