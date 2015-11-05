@@ -42,6 +42,16 @@ describe CodewarsApi::Client do
       train_next_kata = client.train_next_kata(language: 'java')
       expect(train_next_kata).to be_a(CodewarsApi::TrainNextKata)
     end
+
+    it 'returns Codewars::TrainNextKata with peek: true' do
+      stub_train_next_kata_peek
+
+      train_next_kata = client.train_next_kata(
+        language: 'java',
+        peek: 'true'
+      )
+      expect(train_next_kata).to be_a(CodewarsApi::TrainNextKata)
+    end
   end
 
   describe '#train_specific_kata' do

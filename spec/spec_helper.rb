@@ -34,10 +34,11 @@ def stub_attempt_solution
   project_id = '562cbb369116fb896c00002a'
   solution_id = '562cbb379116fb896c00002c'
   api_key = 'iT2dAoTLsv8tQe7KVLxe'
-  stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt").with(
-    body: { code: 'import org.junit.Test;' },
-    headers: { Authorization: api_key }
-  ).to_return(json_response 'attempt_solution.json')
+  stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt")
+    .with(
+      body: { code: 'import org.junit.Test;' },
+      headers: { Authorization: api_key }
+    ).to_return(json_response 'attempt_solution.json')
 end
 
 def stub_kata_info
@@ -67,6 +68,16 @@ def stub_train_next_kata
   stub_post("/code-challenges/#{language}/train")
     .with(headers: { Authorization: api_key })
     .to_return(json_response 'train_next_kata.json')
+end
+
+def stub_train_next_kata_peek
+  language = 'java'
+  api_key = 'iT2dAoTLsv8tQe7KVLxe'
+  stub_post("/code-challenges/#{language}/train")
+    .with(
+      body: { peek: 'true' },
+      headers: { Authorization: api_key }
+    ).to_return(json_response 'train_next_kata.json')
 end
 
 def stub_train_specific_kata
