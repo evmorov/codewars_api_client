@@ -68,8 +68,10 @@ describe CodewarsApi::Client do
       solution_id = '562cbb379116fb896c00002c'
       code = 'import org.junit.Test;'
       api_key = 'iT2dAoTLsv8tQe7KVLxe'
-      stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt")
-        .with(headers: { Authorization: api_key })
+      stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt").with(
+        body: { code: 'import org.junit.Test;' },
+        headers: { Authorization: api_key }
+      )
 
       attempt_solution = client.attempt_solution(
         project_id: project_id,

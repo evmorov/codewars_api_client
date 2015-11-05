@@ -9,7 +9,6 @@ module CodewarsApi
       request_options = {}
       request_options = RequestHelper.add_api_key(request_options, options[:api_key])
       request_options = RequestHelper.add_body_option(request_options, code: code)
-
       @response = RequestHelper.post(
         "#{CodewarsApi::API_URL}"\
         "/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt",

@@ -6,7 +6,10 @@ describe CodewarsApi::AttemptSolution do
     solution_id = '562cbb379116fb896c00002c'
     api_key = 'iT2dAoTLsv8tQe7KVLxe'
     stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt")
-      .with(headers: { Authorization: api_key })
+      .with(
+        body: { code: 'import org.junit.Test;' },
+        headers: { Authorization: api_key }
+      )
       .to_return(json_response 'attempt_solution.json')
   end
 
