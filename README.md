@@ -64,7 +64,7 @@ API documentation is a bit out of date. Tests in api_spec.rb make real request a
 
 Execute to run the tests
 
-`CHECK_API=true API_KEY=your_key USERNAME=any_user rspec spec/api_spec.rb`
+`CHECK_API=true API_KEY=your_key USERNAME=any_user bundle exec rspec spec/api_spec.rb`
 
 ## Contributing
 
