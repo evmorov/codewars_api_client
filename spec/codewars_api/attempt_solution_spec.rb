@@ -2,15 +2,7 @@ require 'spec_helper'
 
 describe CodewarsApi::AttemptSolution do
   before do
-    project_id = '562cbb369116fb896c00002a'
-    solution_id = '562cbb379116fb896c00002c'
-    api_key = 'iT2dAoTLsv8tQe7KVLxe'
-    stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt")
-      .with(
-        body: { code: 'import org.junit.Test;' },
-        headers: { Authorization: api_key }
-      )
-      .to_return(json_response 'attempt_solution.json')
+    stub_attempt_solution
   end
 
   let(:attempt_solution) do

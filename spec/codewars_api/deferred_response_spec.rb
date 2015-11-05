@@ -2,11 +2,7 @@ require 'spec_helper'
 
 describe CodewarsApi::DeferredResponse do
   before do
-    dmid = '4rsdaDf8d'
-    api_key = 'iT2dAoTLsv8tQe7KVLxe'
-    stub_get("/deferred/#{dmid}")
-      .with(headers: { Authorization: api_key })
-      .to_return(json_response 'deferred_response.json')
+    stub_deferred_response
   end
 
   let(:deferred_response) do

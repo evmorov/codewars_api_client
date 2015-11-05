@@ -2,11 +2,7 @@ require 'spec_helper'
 
 describe CodewarsApi::TrainNextKata do
   before do
-    language = 'java'
-    api_key = 'iT2dAoTLsv8tQe7KVLxe'
-    stub_post("/code-challenges/#{language}/train")
-      .with(headers: { Authorization: api_key })
-      .to_return(json_response 'train_next_kata.json')
+    stub_train_next_kata
   end
 
   let(:train_next_kata) do

@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe CodewarsApi::KataInfo do
   before do
-    stub_get('/code-challenges/5277c8a221e209d3f6000b56')
-      .to_return(json_response 'kata_info.json')
+    stub_kata_info
   end
 
   let(:kata) do

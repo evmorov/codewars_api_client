@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CodewarsApi::User do
   before do
-    stub_get('/users/some_user').to_return(json_response 'user.json')
+    stub_user
   end
 
   let(:user) do

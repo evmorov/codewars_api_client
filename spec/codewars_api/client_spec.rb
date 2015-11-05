@@ -17,7 +17,8 @@ describe CodewarsApi::Client do
 
   describe '#user' do
     it 'returns Codewars::User using username' do
-      stub_get('/users/some_user')
+      stub_user
+
       user = client.user('some_user')
       expect(user).to be_a(CodewarsApi::User)
     end
@@ -26,9 +27,9 @@ describe CodewarsApi::Client do
   describe '#kata_info' do
     context 'using id' do
       it 'returns Codewars::KataInfo' do
-        kata_id = '5277c8a221e209d3f6000b56'
-        stub_get("/code-challenges/#{kata_id}")
-        kata = client.kata_info("#{kata_id}")
+        stub_kata_info
+
+        kata = client.kata_info('5277c8a221e209d3f6000b56')
         expect(kata).to be_a(CodewarsApi::KataInfo)
       end
     end
@@ -36,27 +37,20 @@ describe CodewarsApi::Client do
 
   describe '#train_next_kata' do
     it 'returns Codewars::TrainNextKata' do
-      language = 'java'
-      api_key = 'iT2dAoTLsv8tQe7KVLxe'
-      stub_post("/code-challenges/#{language}/train")
-        .with(headers: { Authorization: api_key })
+      stub_train_next_kata
 
-      train_next_kata = client.train_next_kata(language: language)
+      train_next_kata = client.train_next_kata(language: 'java')
       expect(train_next_kata).to be_a(CodewarsApi::TrainNextKata)
     end
   end
 
-  describe '#train_specifc_kata' do
+  describe '#train_specific_kata' do
     it 'returns Codewars::TrainSpecificKata' do
-      id_or_slug = '554b4ac871d6813a03000035'
-      language = 'java'
-      api_key = 'iT2dAoTLsv8tQe7KVLxe'
-      stub_post("/code-challenges/#{id_or_slug}/#{language}/train")
-        .with(headers: { Authorization: api_key })
+      stub_train_specific_kata
 
       train_specific_kata = client.train_specific_kata(
-        id_or_slug: id_or_slug,
-        language: language
+        id_or_slug: '554b4ac871d6813a03000035',
+        language: 'java'
       )
       expect(train_specific_kata).to be_a(CodewarsApi::TrainSpecificKata)
     end
@@ -64,19 +58,12 @@ describe CodewarsApi::Client do
 
   describe '#attempt_solution' do
     it 'returns Codewars::AttemptSolution' do
-      project_id = '562cbb369116fb896c00002a'
-      solution_id = '562cbb379116fb896c00002c'
-      code = 'import org.junit.Test;'
-      api_key = 'iT2dAoTLsv8tQe7KVLxe'
-      stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt").with(
-        body: { code: 'import org.junit.Test;' },
-        headers: { Authorization: api_key }
-      )
+      stub_attempt_solution
 
       attempt_solution = client.attempt_solution(
-        project_id: project_id,
-        solution_id: solution_id,
-        code: code
+        project_id: '562cbb369116fb896c00002a',
+        solution_id: '562cbb379116fb896c00002c',
+        code: 'import org.junit.Test;'
       )
       expect(attempt_solution).to be_a(CodewarsApi::AttemptSolution)
     end
@@ -84,15 +71,11 @@ describe CodewarsApi::Client do
 
   describe '#finalize_solution' do
     it 'returns Codewars::FinalizeSolution' do
-      project_id = '562cbb369116fb896c00002a'
-      solution_id = '562cbb379116fb896c00002c'
-      api_key = 'iT2dAoTLsv8tQe7KVLxe'
-      stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/finalize")
-        .with(headers: { Authorization: api_key })
+      stub_finalize_solution
 
       finalize_solution = client.finalize_solution(
-        project_id: project_id,
-        solution_id: solution_id
+        project_id: '562cbb369116fb896c00002a',
+        solution_id: '562cbb379116fb896c00002c'
       )
       expect(finalize_solution).to be_a(CodewarsApi::FinalizeSolution)
     end
@@ -100,11 +83,9 @@ describe CodewarsApi::Client do
 
   describe '#deferred_response' do
     it 'returns Codewars::DeferredResponse' do
-      dmid = '4rsdaDf8d'
-      api_key = 'iT2dAoTLsv8tQe7KVLxe'
-      stub_get("/deferred/#{dmid}").with(headers: { Authorization: api_key })
+      stub_deferred_response
 
-      deferred_response = client.deferred_response(dmid: dmid)
+      deferred_response = client.deferred_response(dmid: '4rsdaDf8d')
       expect(deferred_response).to be_a(CodewarsApi::DeferredResponse)
     end
   end
