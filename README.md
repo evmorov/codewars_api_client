@@ -12,7 +12,7 @@ Or install it yourself as `$ gem install codewars_api`
 
 ## Usage
 
-http://rdoc.info/gems/codewars_api_client
+[RDoc](http://www.rubydoc.info/github/Evmorov/codewars_api_client)
 
 ```ruby
 client = CodewarsApi::Client.new(api_key: your_api_key)
