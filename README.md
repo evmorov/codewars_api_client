@@ -48,7 +48,7 @@ end
 
 API endpoint                   | Wrapper class (in CodewarsApi::) | Client's method to get an instance
 ------------------------------ | -------------------------------- | --------------------------------
-GET User                       | User                             | #client
+GET User                       | User                             | #user
 GET Code Challenge             | KataInfo                         | #kata_info
 POST Train Next Code Challenge | TrainNextKata                    | #train_next_kata
 POST Train Code Challenge      | TrainSpecificKata                | #train_specifc_kata
