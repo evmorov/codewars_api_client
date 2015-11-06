@@ -1,6 +1,6 @@
 # Codewars API Client
 
-A Ruby interface to the [Codewars API](http://dev.codewars.com).
+[Codewars API](http://dev.codewars.com)
 
 ## Installation
 
