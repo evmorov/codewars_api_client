@@ -1,5 +1,7 @@
 # Codewars API Client
 
+[![Build Status](https://travis-ci.org/evmorov/codewars_api_client.svg?branch=master)](https://travis-ci.org/evmorov/codewars_api_client)
+
 [Codewars API](http://dev.codewars.com)
 
 ## Installation
