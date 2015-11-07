@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['evmorov@gmail.com']
 
   spec.summary       = 'Simple Ruby wrapper for the Codewars API '
-  spec.homepage      = 'https://github.com/Evmorov/codewars_api_client'
+  spec.homepage      = 'https://github.com/evmorov/codewars_api_client'
 
   spec.files         = `git ls-files -z`.split("\x0")
     .reject { |f| f.match(%r{^(test|spec|features)/}) }
