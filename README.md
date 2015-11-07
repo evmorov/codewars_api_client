@@ -1,6 +1,12 @@
 # Codewars API Client
 
-[![Build Status](https://travis-ci.org/evmorov/codewars_api_client.svg?branch=master)](https://travis-ci.org/evmorov/codewars_api_client)
+[![Gem Version](https://badge.fury.io/rb/codewars_api.svg)][gem]
+[![Build Status](https://travis-ci.org/evmorov/codewars_api_client.svg?branch=master)][travis]
+[![Coverage Status](https://coveralls.io/repos/evmorov/codewars_api_client/badge.svg?branch=master&service=github)][coveralls]
+
+[gem]: https://badge.fury.io/rb/codewars_api
+[travis]: https://travis-ci.org/evmorov/codewars_api_client
+[coveralls]: https://coveralls.io/github/evmorov/codewars_api_client?branch=master
 
 [Codewars API](http://dev.codewars.com)
 
