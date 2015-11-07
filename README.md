@@ -72,7 +72,7 @@ Bug reports, pull requests and ideas are welcome!
 
 Steps to make a pull request:
 
-1. Fork it ( https://github.com/Evmorov/codewars_api_client/fork )
+1. Fork it ( https://github.com/evmorov/codewars_api_client/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Make changes
 4. Add tests for it
