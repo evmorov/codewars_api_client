@@ -2,8 +2,8 @@ module CodewarsApi
   class Client
     attr_reader :api_key
 
-    def initialize(options)
-      @api_key = options[:api_key] if options[:api_key]
+    def initialize(options = nil)
+      @api_key = options[:api_key] if options
     end
 
     def user(username)
