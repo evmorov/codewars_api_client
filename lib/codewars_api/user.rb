@@ -1,5 +1,7 @@
 module CodewarsApi
   class User
+    include Common
+
     def initialize(id_or_username)
       fail 'Username or id is not set' unless id_or_username
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/users/#{id_or_username}")
@@ -43,10 +45,6 @@ module CodewarsApi
 
     def katas_completed
       @response.to_h['codeChallenges'].andand['totalCompleted']
-    end
-
-    def to_h
-      @response.to_h
     end
   end
 end

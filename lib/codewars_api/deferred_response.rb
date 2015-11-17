@@ -1,5 +1,7 @@
 module CodewarsApi
   class DeferredResponse
+    include Common
+
     def initialize(options)
       api_key = options.delete!(:api_key)
       dmid = options.delete!(:dmid)
@@ -8,10 +10,6 @@ module CodewarsApi
       request_options = RequestHelper.add_api_key(request_options, api_key)
 
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/deferred/#{dmid}", request_options)
-    end
-
-    def success
-      @response.to_h['success']
     end
 
     def dmid
@@ -58,10 +56,6 @@ module CodewarsApi
       @response.to_h['summary'].andand['errors']
     end
 
-    def reason
-      @response.to_h['reason']
-    end
-
     def output
       @response.to_h['output']
     end
@@ -72,10 +66,6 @@ module CodewarsApi
 
     def status_code
       @response.to_h['status_code']
-    end
-
-    def to_h
-      @response.to_h
     end
   end
 end

@@ -1,5 +1,7 @@
 module CodewarsApi
   class KataInfo
+    include Common
+
     def initialize(id)
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/code-challenges/#{id}")
     end
@@ -94,10 +96,6 @@ module CodewarsApi
 
     def unresolved_suggestions
       @response.to_h['unresolved'].andand['suggestions']
-    end
-
-    def to_h
-      @response.to_h
     end
   end
 end

@@ -1,5 +1,7 @@
 module CodewarsApi
   class FinalizeSolution
+    include Common
+
     def initialize(options)
       api_key = options.delete!(:api_key)
       project_id = options.delete!(:project_id)
@@ -13,14 +15,6 @@ module CodewarsApi
         "/code-challenges/projects/#{project_id}/solutions/#{solution_id}/finalize",
         request_options
       )
-    end
-
-    def success
-      @response.to_h['success']
-    end
-
-    def to_h
-      @response.to_h
     end
   end
 end

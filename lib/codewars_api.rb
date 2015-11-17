@@ -17,6 +17,7 @@ class Hash
 end
 
 require 'andand'
+require 'codewars_api/common'
 require 'codewars_api/request_helper'
 require 'codewars_api/version'
 require 'codewars_api/client'

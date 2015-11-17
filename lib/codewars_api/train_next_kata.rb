@@ -1,5 +1,7 @@
 module CodewarsApi
   class TrainNextKata
+    include Common
+
     def initialize(options)
       api_key = options.delete!(:api_key)
       language = options.delete!(:language)
@@ -12,10 +14,6 @@ module CodewarsApi
         "#{CodewarsApi::API_URL}/code-challenges/#{language}/train",
         request_options
       )
-    end
-
-    def success
-      @response.to_h['success']
     end
 
     def name
@@ -68,10 +66,6 @@ module CodewarsApi
 
     def code
       @response.to_h['session'].andand['code']
-    end
-
-    def to_h
-      @response.to_h
     end
   end
 end

@@ -1,5 +1,7 @@
 module CodewarsApi
   class AttemptSolution
+    include Common
+
     def initialize(options)
       api_key = options.delete!(:api_key)
       project_id = options.delete!(:project_id)
@@ -16,16 +18,8 @@ module CodewarsApi
       )
     end
 
-    def success
-      @response.to_h['success']
-    end
-
     def dmid
       @response.to_h['dmid']
-    end
-
-    def to_h
-      @response.to_h
     end
   end
 end
