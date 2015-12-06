@@ -16,6 +16,7 @@ module CodewarsApi
         "/code-challenges/projects/#{project_id}/solutions/#{solution_id}/attempt",
         request_options
       )
+      fail @response.message if @response.code == 500
     end
 
     def dmid
