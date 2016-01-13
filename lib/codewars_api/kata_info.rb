@@ -4,7 +4,7 @@ module CodewarsApi
 
     def initialize(id)
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/code-challenges/#{id}")
-      fail @response.message if @response.code == 500
+      ResponseChecker.check_errors(@response)
     end
 
     def id

@@ -10,7 +10,7 @@ module CodewarsApi
       request_options = RequestHelper.add_api_key(request_options, api_key)
 
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/deferred/#{dmid}", request_options)
-      fail @response.message if @response.code == 500
+      ResponseChecker.check_errors(@response)
     end
 
     def dmid

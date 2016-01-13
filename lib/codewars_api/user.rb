@@ -5,7 +5,7 @@ module CodewarsApi
     def initialize(id_or_username)
       fail 'Username or id is not set' unless id_or_username
       @response = RequestHelper.get("#{CodewarsApi::API_URL}/users/#{id_or_username}")
-      fail @response.message if @response.code == 500
+      ResponseChecker.check_errors(@response)
     end
 
     def username

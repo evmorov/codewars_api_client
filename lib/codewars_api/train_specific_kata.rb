@@ -14,7 +14,7 @@ module CodewarsApi
         "#{CodewarsApi::API_URL}/code-challenges/#{id_or_slug}/#{language}/train",
         request_options
       )
-      fail @response.message if @response.code == 500
+      ResponseChecker.check_errors(@response)
     end
 
     def name
