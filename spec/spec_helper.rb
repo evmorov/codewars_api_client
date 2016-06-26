@@ -2,9 +2,9 @@ require 'simplecov'
 require 'coveralls'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-])
+                                                                 SimpleCov::Formatter::HTMLFormatter,
+                                                                 Coveralls::SimpleCov::Formatter
+                                                               ])
 SimpleCov.start do
   add_filter '/spec/'
 end
@@ -43,11 +43,11 @@ def stub_attempt_solution
     .with(
       body: { code: 'import org.junit.Test;' },
       headers: { Authorization: api_key }
-    ).to_return(json_response 'attempt_solution.json')
+    ).to_return(json_response('attempt_solution.json'))
 end
 
 def stub_kata_info
-  stub_get('/code-challenges/5277c8a221e209d3f6000b56').to_return(json_response 'kata_info.json')
+  stub_get('/code-challenges/5277c8a221e209d3f6000b56').to_return(json_response('kata_info.json'))
 end
 
 def stub_deferred_response
@@ -55,7 +55,7 @@ def stub_deferred_response
   api_key = 'iT2dAoTLsv8tQe7KVLxe'
   stub_get("/deferred/#{dmid}")
     .with(headers: { Authorization: api_key })
-    .to_return(json_response 'deferred_response.json')
+    .to_return(json_response('deferred_response.json'))
 end
 
 def stub_finalize_solution
@@ -64,7 +64,7 @@ def stub_finalize_solution
   api_key = 'iT2dAoTLsv8tQe7KVLxe'
   stub_post("/code-challenges/projects/#{project_id}/solutions/#{solution_id}/finalize")
     .with(headers: { Authorization: api_key })
-    .to_return(json_response 'finalize_solution.json')
+    .to_return(json_response('finalize_solution.json'))
 end
 
 def stub_train_next_kata
@@ -72,7 +72,7 @@ def stub_train_next_kata
   api_key = 'iT2dAoTLsv8tQe7KVLxe'
   stub_post("/code-challenges/#{language}/train")
     .with(headers: { Authorization: api_key })
-    .to_return(json_response 'train_next_kata.json')
+    .to_return(json_response('train_next_kata.json'))
 end
 
 def stub_train_next_kata_peek
@@ -82,7 +82,7 @@ def stub_train_next_kata_peek
     .with(
       body: { peek: 'true' },
       headers: { Authorization: api_key }
-    ).to_return(json_response 'train_next_kata.json')
+    ).to_return(json_response('train_next_kata.json'))
 end
 
 def stub_train_specific_kata
@@ -91,11 +91,11 @@ def stub_train_specific_kata
   api_key = 'iT2dAoTLsv8tQe7KVLxe'
   stub_post("/code-challenges/#{id_or_slug}/#{language}/train")
     .with(headers: { Authorization: api_key })
-    .to_return(json_response 'train_specific_kata.json')
+    .to_return(json_response('train_specific_kata.json'))
 end
 
 def stub_user
-  stub_get('/users/some_user').to_return(json_response 'user.json')
+  stub_get('/users/some_user').to_return(json_response('user.json'))
 end
 
 def stub_get(url)

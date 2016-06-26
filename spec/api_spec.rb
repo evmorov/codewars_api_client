@@ -15,28 +15,28 @@ describe 'API responses have expected keys', check_api: false do
   end
 
   describe 'GET User' do
-    it 'returns keys equal to user.json'do
+    it 'returns keys equal to user.json' do
       hash_actual = client.user(ENV['USERNAME']).to_h
-      hash_expected = JSON.parse(File.read fixture('user.json'))
+      hash_expected = JSON.parse(File.read(fixture('user.json')))
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
   end
 
   describe 'GET Code Challenge' do
-    it 'returns keys equal to kata_info.json'do
+    it 'returns keys equal to kata_info.json' do
       hash_actual = client.kata_info('554b4ac871d6813a03000035').to_h
-      hash_expected = JSON.parse(File.read fixture('kata_info.json'))
+      hash_expected = JSON.parse(File.read(fixture('kata_info.json')))
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
   end
 
   describe 'POST Train Next Code Challenge' do
-    it 'returns keys equal to train_next_kata.json'do
+    it 'returns keys equal to train_next_kata.json' do
       hash_actual = client.train_next_kata(
         peek: 'true',
         language: 'java'
       ).to_h
-      hash_expected = JSON.parse(File.read fixture('train_next_kata.json'))
+      hash_expected = JSON.parse(File.read(fixture('train_next_kata.json')))
       hash_expected.delete('session') # no session in the response because of peek: true
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
@@ -48,7 +48,7 @@ describe 'API responses have expected keys', check_api: false do
         id_or_slug: '554b4ac871d6813a03000035',
         language: 'java'
       ).to_h
-      hash_expected = JSON.parse(File.read fixture('train_specific_kata.json'))
+      hash_expected = JSON.parse(File.read(fixture('train_specific_kata.json')))
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
   end
@@ -62,7 +62,7 @@ describe 'API responses have expected keys', check_api: false do
          static org.junit.Assert.*;\n\npublic class Tests {\n  @Test\n  public void Test1() {\n\
          assertEquals(\"42 -9\", Kata.HighAndLow(\"8 3 -5 42 -1 0 0 -9 4 7 4 -4\"));\n  }\n}'
       ).to_h
-      hash_expected = JSON.parse(File.read fixture('attempt_solution.json'))
+      hash_expected = JSON.parse(File.read(fixture('attempt_solution.json')))
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
   end
@@ -73,7 +73,7 @@ describe 'API responses have expected keys', check_api: false do
         project_id: '562cbb369116fb896c00002a',
         solution_id: '562cbb379116fb896c00002c'
       ).to_h
-      hash_expected = JSON.parse(File.read fixture('finalize_solution_fail.json'))
+      hash_expected = JSON.parse(File.read(fixture('finalize_solution_fail.json')))
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
   end
@@ -96,7 +96,7 @@ describe 'API responses have expected keys', check_api: false do
         break if hash_actual['success']
         sleep 1
       end
-      hash_expected = JSON.parse(File.read fixture('deferred_response.json'))
+      hash_expected = JSON.parse(File.read(fixture('deferred_response.json')))
       expect(hash_actual).to have_the_same_keys_as(hash_expected)
     end
   end

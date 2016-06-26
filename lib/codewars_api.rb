@@ -5,8 +5,8 @@ rescue LoadError
 end
 
 module CodewarsApi
-  BASE_URL = 'https://www.codewars.com'
-  API_URL = '/api/v1'
+  BASE_URL = 'https://www.codewars.com'.freeze
+  API_URL = '/api/v1'.freeze
 end
 
 class Hash
