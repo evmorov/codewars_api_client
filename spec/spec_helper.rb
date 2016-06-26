@@ -1,10 +1,12 @@
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-                                                                 SimpleCov::Formatter::HTMLFormatter,
-                                                                 Coveralls::SimpleCov::Formatter
-                                                               ])
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+)
 SimpleCov.start do
   add_filter '/spec/'
 end
@@ -25,9 +27,9 @@ RSpec::Matchers.define :have_the_same_keys_as do |hash_expected|
 
   failure_message do |actual|
     %(expect keys
-#{map_keys(actual)}
+    #{map_keys(actual)}
 to equal
-#{map_keys(expected)})
+    #{map_keys(expected)})
   end
 
   def map_keys(hash)

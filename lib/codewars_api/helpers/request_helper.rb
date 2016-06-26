@@ -32,8 +32,6 @@ module CodewarsApi
       https(uri).request_get uri, headers
     end
 
-    private
-
     def self.https(uri)
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
