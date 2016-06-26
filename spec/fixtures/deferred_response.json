@@ -16,5 +16,6 @@
   "reason": "-e: Value is not what was expected (Test::Error)",
   "output": ["<div class='console-failed'>Value is not what was expected</div>"],
   "wall_time": 2273,
+  "type": "execution success",
   "status_code": 200
 }

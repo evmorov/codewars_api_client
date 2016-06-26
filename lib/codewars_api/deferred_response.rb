@@ -65,6 +65,10 @@ module CodewarsApi
       @response.to_h['wall_time']
     end
 
+    def type
+      @response.to_h['type']
+    end
+
     def status_code
       @response.to_h['status_code']
     end
